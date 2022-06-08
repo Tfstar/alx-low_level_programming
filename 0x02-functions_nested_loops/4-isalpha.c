@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * check for alphabetic character
+ * _isapha will check for alphabetic character
+ * check for bellow instruction
  * Return: 1 if c is a letter, 0 otherwise
  */
 int _isalpha(int c)
