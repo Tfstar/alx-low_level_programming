@@ -13,9 +13,9 @@ void _puts(char *str)
 
 	c = str;
 
-	for (m = 0; (c[m]; m++) /*counting of character*/
-			{
-			_putchar (c[m]);
-			}
-			_putchar('\n');
+	for (m = 0; c[m]; m++) /*Counting a character by character*/
+	{
+		_putchar (c[m]);
+	}
+	_putchar('\n');
 }
