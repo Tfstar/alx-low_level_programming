@@ -1,57 +1,40 @@
-/*
- * File: 104-print_buffer.c
- * Auth: Kolade Fatai Opeyemi
- */
-
 #include "main.h"
-#include <stdio.h>
-
 /**
- * print_buffer - Prints a buffer 10 bytes at a time, starting with
- *                the byte position, then showing the hex content,
- *                then displaying printable charcaters.
- * @b: The buffer to be printed.
- * @size: The number of bytes to be printed from the buffer.
+ * reverse_array - reverses the content of an array of integers
+ * @a: an array of integers
+ * @n: number of elements of the array
+ * Return: returns void
  */
-void print_buffer(char *b, int size)
+
+void reverse_array(int *a, int n)
+
 {
-	int byte, i;
+	int *start_x, *end_x, x;
+	int y;
 
-	for (byte = 0; byte < size; byte += 10)
+	/*Start_x and end_x is equal value of variable s*/
+	start_x = a;
+	end_x = a;
+
+	/*Move the end_c to the last character*/
+	for (y = 0; y < n - 1; y++)
 	{
-		printf("%08x: ", byte);
-
-		for (i = 0; i < 10; i++)
-		{
-			if ((i + byte) >= size)
-				printf("  ");
-
-			else
-				printf("%02x", *(b + i + byte));
-
-			if ((i % 2) != 0 && i != 0)
-				printf(" ");
-		}
-
-		for (i = 0; i < 10; i++)
-		{
-			if ((i + byte) >= size)
-				break;
-
-			else if (*(b + i + byte) >= 31 &&
-				 *(b + i + byte) <= 126)
-				printf("%c", *(b + i + byte));
-
-			else
-				printf(".");
-		}
-
-		if (byte >= size)
-			continue;
-
-		printf("\n");
+		end_x++;
 	}
 
-	if (size <= 0)
-		printf("\n");
+	/* Swap the char from start and end */
+	/* index using begin_ptr and end_ptr */
+	for (y = 0; y < n / 2; y++)
+	{
+
+		/*swap character*/
+		x = *end_x;
+		*end_x = *start_x;
+		*start_x = x;
+
+		/*update pointers positions*/
+		start_x++;
+		end_x--;
+	}
+
 }
